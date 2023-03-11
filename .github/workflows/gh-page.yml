@@ -19,6 +19,7 @@ jobs:
                 NODE_OPTIONS: "--openssl-legacy-provider"
             - name: Build Storybook
               run: |
+                  mkdir dist
                   npm install --legacy-peer-deps
                   npm run build-storybook
             - name: Build and deploy 🚀
