@@ -15,11 +15,11 @@
     "build": "tsc -p tsconfig.build.json",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
-    "prepare": "export SET NODE_OPTIONS=--openssl-legacy-provider && npm run build",
+    "prepare": "npm run build",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "export SET NODE_OPTIONS=--openssl-legacy-provider && build-storybook",
     "predeploy": "npm run build-storybook",
     "deploy": "gh-pages -d storybook-static"
   },
