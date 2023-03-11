@@ -1,0 +1,21 @@
+name: gh-pages
+on:
+    push:
+        branches:
+            - master
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout 🛎️
+              uses: actions/checkout@v3
+            - name: Build Storybook
+              run: |
+                  npm install --legacy-peer-deps
+                  npm run build-storybook
+            - name: Build and deploy 🚀
+              uses: JamesIves/github-pages-deploy-action@4.1.5
+              with:
+                  token: ${{ secrets.ACCESS_TOKEN }}
+                  branch: gh-pages
+                  folder: storybook-static
