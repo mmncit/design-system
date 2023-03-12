@@ -37,7 +37,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "design-system",
+  "name": "@mmncit/design-system",
   "author": "Mamun",
   "module": "dist/design-system.esm.js",
   "size-limit": [
