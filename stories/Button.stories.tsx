@@ -11,6 +11,9 @@ const meta: Meta = {
       control: { type: 'color' },
     },
   },
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 export default meta;
