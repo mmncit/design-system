@@ -1,7 +1,13 @@
 name: npm-publish
 
 on:
-    release:
+  push:
+      branches:
+        - master
+      paths:
+        - package.json
+  workflow_dispatch:
+  release:
         types: [created]
 
 jobs:
