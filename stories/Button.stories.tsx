@@ -5,7 +5,12 @@ import { Button, ButtonProps } from '../src/components';
 const meta: Meta = {
   title: 'Components/Button',
   component: Button,
-  argTypes: { handleClick: { action: 'handleClick' } },
+  argTypes: {
+    handleClick: { action: 'handleClick' },
+    backgroundColor: {
+      control: { type: 'color' },
+    },
+  },
 };
 
 export default meta;
@@ -17,6 +22,27 @@ Default.args = {
   backgroundColor: 'red',
   label: 'Press Me',
   size: 'md',
+};
+
+export const Green = Template.bind({});
+Green.args = {
+  backgroundColor: 'green',
+  label: 'Press Me',
+  size: 'md',
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  backgroundColor: 'red',
+  label: 'Press Me',
+  size: 'sm',
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  backgroundColor: 'red',
+  label: 'Press Me',
+  size: 'lg',
 };
 
 export const LongLabel = Template.bind({});
