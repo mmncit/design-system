@@ -6,15 +6,24 @@ const meta: Meta = {
   title: 'Components/Stack',
   component: Stack,
   argTypes: {
-    numberOfChildren: { type: 'number', defaultValue: 4 },
+    numberOfChildren: {
+      type: 'number',
+      defaultValue: 4,
+      min: 1,
+      max: 30,
+      step: 2,
+    },
   },
 };
 
 export default meta;
 
-const Template: Story<StackProps> = ({ numberOfChildren, ...args }) => (
+const Template: Story<StackProps & { numberOfChildren: number }> = ({
+  numberOfChildren,
+  ...args
+}) => (
   <Stack {...args}>
-    {[...Array(numberOfChildren).keys()].map(n => (
+    {[...Array(numberOfChildren < 0 ? 0 : numberOfChildren).keys()].map(n => (
       <div
         style={{
           width: '50px',
@@ -74,16 +83,15 @@ Empty.args = {
 
 const heights = [40, 60, 80, 50];
 
-const DifferentHeightTemplate: Story<StackProps> = ({
-  numberOfChildren,
-  ...args
-}) => (
+const DifferentHeightTemplate: Story<StackProps & {
+  numberOfChildren: number;
+}> = ({ numberOfChildren, ...args }) => (
   <Stack {...args}>
-    {[...Array(numberOfChildren).keys()].map(n => (
+    {[...Array(numberOfChildren < 0 ? 0 : numberOfChildren).keys()].map(n => (
       <div
         style={{
           width: '50px',
-          height: `${heights[n]}px`,
+          height: `${heights[n % heights.length]}px`,
           backgroundColor: '#3DB7E9',
           display: 'flex',
           justifyContent: 'center',
